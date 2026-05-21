@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Clone') {
+            steps {
+                echo 'Cloning repository'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Building application'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh '''
+                sudo cp index.html /var/www/html/index.html
+                '''
+            }
+        }
+    }
+}
